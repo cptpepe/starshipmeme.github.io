@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>酱香拿铁代币</title>
+    <title>Starship2.0 Token</title>
     <style>
         html,
         body {
@@ -63,11 +63,12 @@
             flex: 1;
             /* 视频和文本内容各占一半的宽度 */
             display: flex;
-            /* 使用Flexbox布局 */
+            flex-direction: column;
+            /* 设置为列方向，使子元素上下排列 */
             justify-content: center;
-            /* 水平居中 */
-            align-items: center;
             /* 垂直居中 */
+            align-items: center;
+            /* 水平居中 */
             height: 100%;
             /* 使容器占满可用高度 */
         }
@@ -127,6 +128,15 @@
         .btn:hover {
             background-color: #0056b3;
         }
+
+        #countdown {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 100px !important;
+            /* 放大字体 */
+            color: white;
+            /* 设置字体颜色为白色 */
+        }
     </style>
 </head>
 
@@ -134,7 +144,7 @@
     <div class="navbar">
         <div class="logo"></div>
         <a href="https://app.uniswap.org/" target="_blank">
-            <button class="btn">前往Uniswap</button>
+            <button class="btn">Go to Uniswap</button>
         </a>
     </div>
     <div class="main-content">
@@ -144,24 +154,51 @@
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
+            <!-- 倒计时容器 -->
+            <div id="countdown" style="margin-top: 20px; text-align: center; font-size: 20px;"></div>
         </div>
         <div class="content">
             <h1>Starship2.0</h1>
-            <p>买币支持 星舰宇宙飞船</p>
-            <p>星舰飞船是SpaceX联合NASA，推出的新式宇宙旅行体验。
-                科技 + 探索 激发又震撼。
-                乘国际飞船，购国际Token～</p>
+            <p>Buy tokens to support Starship Spacecraft</p>
+            <p>Starship is a new cosmic travel experience launched by SpaceX in collaboration with NASA.
+                Technology + Exploration, both inspiring and shocking. Ride an international spaceship, buy
+                international Token~</p>
             <a href="https://app.uniswap.org/" class="support-btn">To da moon</a>
-            <h2>介绍</h2>
-            <p>欢迎来到星舰宇宙飞船代币的宇宙，这里将为您提供前所未有的数字航天探索体验。就像一艘精心设计的宇宙飞船将技术与冒险完美融合，我们的代币将创新和航天无缝结合，为您带来令人震撼的数字资产旅程之旅。</p>
-            <h2>特点</h2>
-            <p>酱香调味酱香拿铁代币融合了金融创新与数字美食的精髓，就像瑞幸咖啡和贵州茅台合作的经典饮品一样，我们的代币带来了独特的酱汁调味，创造了一种前所未有的数字资产口感。
-                高品质投资我们的代币由一流的区块链技术支持，采用最优质的数字资产，经过精心挑选和研究，确保您的投资品质无可比拟。
-                多场景适用无论您是数字资产新手还是经验丰富的投资者，酱香拿铁代币都适用于不同的投资场景，无论是长期持有还是短期交易，都能为您提供卓越的数字金融享受。
-                美味回报就像品尝一杯酱香拿铁的奢华味觉体验一样，酱香拿铁代币将为您带来丰厚的投资回报，助您实现财务目标。</p>
-            <!-- ... 其他内容 ... -->
+            <h2>Introduction</h2>
+            <p>Welcome to the universe of Starship2.0 Token, where we offer you an unprecedented digital space
+                exploration experience. Just as a meticulously designed spacecraft perfectly blends technology with
+                adventure, our token seamlessly integrates innovation with aerospace, taking you on a breathtaking
+                digital asset journey.</p>
+            <h2>Features</h2>
+            <p>Starship2.0 tokens combine the essence of aerospace innovation and digital exploration. Just like
+                the perfect combination of SpaceX and interstellar travel, our tokens bring a unique flavor of the
+                universe, creating an unprecedented digital asset experience. High-Quality Investment Our tokens are
+                powered by state-of-the-art blockchain technology, using the highest quality digital assets, and are
+                carefully selected and researched to ensure the quality of your investment is unparalleled. Suitable for
+                multiple scenarios. Whether you are a novice in digital assets or an experienced investor.Whether it is long-term
+                holding or short-term trading, it can provide you with excellent digital financial enjoyment. Cosmic
+                Returns Just like experiencing a luxurious trip on a Starship, Starship2.0 will
+                bring you generous returns on investment and help you achieve your financial goals.</p>
+            <!-- ... (Other content remains unchanged) ... -->
         </div>
     </div>
 </body>
+<script>
+    function updateCountdown() {
+        const now = new Date();
+        const endOfYear = new Date(now.getFullYear(), 11, 31, 23, 59, 59); // 今年年底的日期
+        const timeDiff = endOfYear - now;
+
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown').innerText = `${days}: ${hours}: ${minutes}: ${seconds}`;
+    }
+
+    updateCountdown(); // 初始化倒计时
+    setInterval(updateCountdown, 1000); // 每秒更新一次
+</script>
 
 </html>
